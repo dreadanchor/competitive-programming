@@ -1,0 +1,11 @@
+Há uma melancia de w kg;
+A melancia precisa ser divida tal que as duas partes tenham um peso par, não necessariamente igualitário;
+O programa deve verificar se é possível dividir a melancia de tal forma;
+
+A entrada contém apenas um caso de teste, o valor w (1 <= w <= 100);
+A saída deve acusar "YES" caso seja possível dividir a melancia dessa forma ou "NO" caso contrário;
+
+#1
+Logo de cara, percebe-se que o valor precisa ser maior ou igual a 4, já que 1, 2 e 3 não podem ser divididos em 2 partes pares;
+Percebe-se também que o valor não pode ser ímpar, já que um número ímpar é também a soma de um par com um ímpar, e nunca a de um par com um par;
+Ou seja, sendo o valor maior que 3 (ou maior igual a 4) e par, é possível dividir em duas partes pares;
