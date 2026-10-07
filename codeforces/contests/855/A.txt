@@ -1,0 +1,6 @@
+Recebemos em n casos, n strings;
+
+Precisamos exibir "NO" se é a primeira vez que ela aparece e "YES" se já apareceu antes;
+
+#1
+Podemos armazenar numa unordered set e verificar se já existe, se existir, YES, se não, NO e adiciona;
