@@ -1,0 +1,53 @@
+Existe um cadeado com n butões;
+Para ser aberto, os botões devem ser apertados na ordem certa;
+Entretanto, ele se mantém pressionado apenas até você errar a combinação;
+
+A entrada é o número de botões;
+
+A saída é o número de vezes a ser pressionado, no pior cenário possível;
+
+#1
+A questão parece fácil, mas o fato de que o cadeado "reseta" a cada erro, dificulta um pouco;
+Após rascunhar um pouco, gerei a hipótese de que, pensando que a cada acerto o n de butões
+diminui em 1, o valor de "pressionadas" de cada camada até n ser 1, é o número de opções
+erradas vezes o nível daquela camada + c (sendo esse c o número da camada anterior, considerando a camada 0 com c = 1 também), ficou um pouco confuso mas olha isso:
+
+Entrada:
+4
+
+(imagine que os 'O' são botões e '0' é a opção certa, e 'U' se foi pressionado corretamente)
+
+OOO0
+Essa seria a "primeira camada" do cadeado, onde cada camada conta com apenas uma opção correta
+Aqui tá fácil, precisamos apertar 4 vezes para chegar no pior cenário, ser 3 vezes 1 + 1 pode ser apenas
+uma coincidência!
+
+O0OU
+Então tá, temos 4 até agora
+no pior cenário possível eu pressiono o 1 e o 3, para depois pressionar o 2, então temos
+(considere R = reset)
+1R2R3R4 na primeira camada e 1R, 43R e 42 na segunda, apertamos +5 vezes, 9 no total... mas pera
+5 = 2 (número de opções erradas) vezes 2 (número da camada) + 1
+
+Coincidência? Acho que não
+
+Querendo, querendo não, acho que achei a resposta quase que acidentalmente, mas vamos continuar
+
+Temos agora:
+OU0U
+
+1R2R3R41R43R42  +  1R423
+Apertamos mais 4 vezes
+4 = 1 x 2 + 2
+
+OK...
+
+Por fim
+0UUU, não tem como errar, é só +1
+a ordem final ficou
+1R2R3R41R43R421R4231
+14 pressionamentos
+
+Agora se isso funciona? Eu não tenho certeza, até porque parece algo bem de gambiarra mesmo
+
+Mas essa implementação lembra recursividade, me resta tentar aplicar!
